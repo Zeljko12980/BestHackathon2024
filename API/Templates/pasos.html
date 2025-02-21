@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministarstvo unutrašnjih poslova BiH - Forma</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f4;
+        }
+        .form-container {
+            width: 100%;
+            max-width: 600px;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            font-size: 20px;
+        }
+        .form-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .form-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .form-table td:first-child {
+            width: 35%;
+            font-weight: bold;
+        }
+        .form-table input[type="text"], 
+        .form-table input[type="email"], 
+        .form-table textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .signature {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Ministarstvo unutrašnjih poslova BiH</h1>
+        <p>Za podnošenje zahtjeva za izdavanje pasoša/putovnice potrebno je da popunite tražene podatke.</p>
+        <form>
+            <table class="form-table">
+                <tr>
+                    <td>IME I PREZIME</td>
+                    <td><input type="text" name="ime_prezime" required></td>
+                </tr>
+                <tr>
+                    <td>JEDINSTVENI MATIČNI BROJ (JMB)</td>
+                    <td><input type="text" name="jmb" required></td>
+                </tr>
+                <tr>
+                    <td>ADRESA U USA (kućni broj, ulica, #, apt.)</td>
+                    <td><input type="text" name="adresa_usa" required></td>
+                </tr>
+                <tr>
+                    <td>GRAD, SAVEZNA DRŽAVA, ZIP KOD</td>
+                    <td><input type="text" name="grad_zip" required></td>
+                </tr>
+                <tr>
+                    <td>BROJ TELEFONA</td>
+                    <td><input type="text" name="broj_telefona" required></td>
+                </tr>
+                <tr>
+                    <td>ADRESA U BIH</td>
+                    <td><input type="text" name="adresa_bih"></td>
+                </tr>
+                <tr>
+                    <td>E-MAIL ADRESA</td>
+                    <td><input type="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td>NAPOMENA</td>
+                    <td><textarea name="napomena" rows="3"></textarea></td>
+                </tr>
+            </table>
+
+            <div class="signature">
+                <p>Potpis podnosioca zahtjeva</p>
+                <p>______________________________</p>
+            </div>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>Ministarstvo unutrašnjih poslova BiH | www.mupbih.ba</p>
+        <p>Tel: +387 33 123 456 | Fax: +387 33 654 321 | Email: info@mupbih.ba</p>
+    </div>
+
+</body>
+</html>
