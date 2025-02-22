@@ -1,23 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useAppSelector } from '../../store/configureStore';
 import ClassItem from '../../components/ClassItem';
 
 const HomePage: React.FC = () => {
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-
   const { user } = useAppSelector((state) => state.auth);
 
-  // Kada korisnik ima nastavu, mapiraj kroz "teachingClasses" i prikaži "ClassItem" za svaki razred
+  // Loguj user teachingClasses
+  console.log(user?.teachingClasses);
+
   return (
     <div>
-      {/* Ako korisnik ima teachingClasses, mapiraj kroz njih i renderuj ClassItem */}
       {user?.teachingClasses && user.teachingClasses.length > 0 ? (
-        user.teachingClasses.map((className, index) => (
+        user.teachingClasses.map((classItem) => (
           <ClassItem
-            key={index}
-            title={className} // Ovde je samo string (ime razreda)
-            classId={className} // Koristimo ime razreda kao ID za URL
+            key={classItem} // Koristi id kao key
+            title={classItem} // Dodeljujemo samo name kao string
+            classId={classItem} // Dodeljujemo id kao classId
           />
         ))
       ) : (

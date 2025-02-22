@@ -20,6 +20,8 @@ import QueueRequests from './pages/Queue/QueueRequests';
 import QueuePaying from './pages/Queue/QueuePaying';
 import MyAppointments from './pages/MyAppointments';
 import DriftChat from './pages/UiElements/driftchat';
+import ClassDetails from './pages/ClassDetails';
+import Statistika from './pages/Statistika';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -170,6 +172,24 @@ function App() {
             <>
               <PageTitle title="Red čekanja - zahtjevi" />
               <QueueRequests />
+            </>
+          }
+        />
+        <Route
+          path="/class/:classId"
+          element={
+            <>
+              <PageTitle title="Detalji časa" />
+              <ClassDetails />
+            </>
+          }
+        />
+        <Route
+          path="//statistika/:className"
+          element={
+            <>
+              <PageTitle title="Statistika razreda" />
+              <Statistika /> {/* Prosledi classId */}
             </>
           }
         />

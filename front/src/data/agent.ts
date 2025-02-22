@@ -53,10 +53,16 @@ const Documents = {
   },
 };
 
+const Students = {
+  getStudentsByClass: (classId: number, token?: string) =>
+    request.get(`students/class/${classId}`, token),
+};
+
 const agent = {
   Auth,
   FileExport,
   Documents,
+  Students, // Dodajemo Students u agent objekat
 };
 
 export default agent;

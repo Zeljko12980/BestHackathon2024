@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-const ClassItem: React.FC<{ title: string; classId: string }> = ({
+const ClassItem: React.FC<{ title: string; classId: number }> = ({
   title,
   classId,
 }) => {

@@ -18,51 +18,51 @@ namespace API.Data
                 {
                     new SchoolClass
                     {
-                        Name = "I1",
+                        Name = "I-1",
                         Students = new List<User>(), // Ovdje možeš dodati studente ako ih imaš
                         Teachers = new List<User>()  // Ovdje možeš dodati profesore ako ih imaš
                     },
                     new SchoolClass
                     {
-                        Name = "I2",
+                        Name = "I-2",
                         Students = new List<User>(),
                         Teachers = new List<User>()
                     },
                     new SchoolClass
                     {
-                        Name = "I3",
+                        Name = "I-3",
                         Students = new List<User>(),
                         Teachers = new List<User>()
                     },
                     new SchoolClass
                     {
-                        Name = "IV1",
+                        Name = "IV-1",
                         Students = new List<User>(),
                         Teachers = new List<User>()
                     },
                     new SchoolClass
                     {
-                        Name = "IV2",
+                        Name = "IV-2",
                         Students = new List<User>(),
                         Teachers = new List<User>()
                     },
                     new SchoolClass
                     {
-                        Name = "IV3",
+                        Name = "IV-3",
                         Students = new List<User>(),
                         Teachers = new List<User>()
                     }
                 };
 
-// Seed u bazu podataka
+                // Seed u bazu podataka
                 await context.SchoolClasses.AddRangeAsync(schoolClasses);
                 await context.SaveChangesAsync();
-  // Sačuvaj da bi dobio ID razreda
+
+                // Sačuvaj da bi dobio ID razreda
+                var selectedSchoolClass = schoolClasses[0]; // Odaberi željeni razred (npr. I1)
 
                 // Kreiraj profesora
-               // Pretpostavljamo da student treba biti dodeljen prvom razredu u listi
-var selectedSchoolClass = schoolClasses[0]; // Odaberi željeni razred (npr. I1)
-
+                // Kreiraj profesora
 // Kreiraj profesora
 var teacher = new User
 {
@@ -72,32 +72,42 @@ var teacher = new User
     Email = "profesor@email.com",
     JMBG = "0123456789",
     SchoolClassId = null, // Profesori nemaju samo jedan razred
-    TeachingClasses = schoolClasses // Dodeljujemo profesora svim razredima
+    TeachingClasses = new List<SchoolClass>() // Dodeljujemo profesoru listu razreda koje predaje
 };
+
+// Dodeli profesoru sve razrede
+foreach (var schoolClass in schoolClasses)
+{
+    teacher.TeachingClasses.Add(schoolClass);  // Dodaj razred profesoru
+    schoolClass.Teachers.Add(teacher);         // Dodaj profesora razredu
+}
 
 // Kreiraj učenika
 var student = new User
 {
     FirstName = "Marko",
     LastName = "Markovic",
-    UserName = "marko_student",
+    UserName = "markostudent",
     Email = "marko@school.com",
     JMBG = "9876543210",
-    SchoolClassId = selectedSchoolClass.Id // Sada možemo povezati učenika sa razredom
+    SchoolClassId = selectedSchoolClass.Id // Sada povezujemo učenika sa razredom
 };
 
-// Dodavanje studenta i profesora u odgovarajući razred
+// Dodavanje studenta u odgovarajući razred
 selectedSchoolClass.Students.Add(student);
-selectedSchoolClass.Teachers.Add(teacher);
 
 // Kreiranje korisnika i dodela uloga
 await userManager.CreateAsync(teacher, "Pa$$w0rd");
 await userManager.AddToRolesAsync(teacher, new List<string> { "Admin" });
 
 await userManager.CreateAsync(student, "Pa$$w0rd");
-await userManager.AddToRolesAsync(student, new List<string> { "Student" });
+await userManager.AddToRolesAsync(student, new List<string> { "Member" });
 
+// Ažuriraj profesora u bazi da bi veza bila sačuvana
+context.Users.Update(teacher);
 await context.SaveChangesAsync();
+
+
             }
         }
     }

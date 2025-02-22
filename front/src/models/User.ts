@@ -1,3 +1,8 @@
+export interface TeachingClass {
+  id: number; // Pravi classId
+  name: string; // Ime klase (I1, I2 itd.)
+}
+
 export interface User {
   email: string;
   token: string;
@@ -7,7 +12,7 @@ export interface User {
   roles?: string[];
   id: string;
   jmbg: string;
-  schoolClassId: string | null; // Ako je ovo nullable, može biti null
-  schoolClassName: string | null; // Isto kao gore
-  teachingClasses: string[]; // Niz časova koje korisnik predaje
+  schoolClassId: number | null; // Stvarni classId
+  schoolClassName: string | null;
+  teachingClasses: TeachingClass[]; // Sada sadrži i ID i ime klase
 }

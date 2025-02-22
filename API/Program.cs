@@ -12,6 +12,11 @@ using Microsoft.OpenApi.Models;
 using API.Services;
 using API;
 
+// using API.Services.Interfaces;
+
+using API;
+
+using Microsoft.AspNetCore.SignalR;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -52,7 +57,7 @@ builder.Services.AddCors(options =>
     });
 });
 
-
+builder.Services.AddScoped<PythonScriptService>();
 builder.Services.AddAuthorization();
 builder.Services.AddScoped<TokenService>();
 // builder.Services.AddTransient<IEmailService, EmailService>();
