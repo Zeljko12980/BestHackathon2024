@@ -17,6 +17,7 @@ namespace API.Controllers
         private readonly StoreContext _context;
         private readonly UserManager<User> _userManager;
         private readonly TokenService _tokenService;
+        private readonly PythonScriptService _pythonScriptService;
 
         public AuthController(StoreContext context, UserManager<User> userManager, TokenService tokenService)
         {

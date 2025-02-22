@@ -52,7 +52,7 @@ builder.Services.AddCors(options =>
     });
 });
 
-
+builder.Services.AddScoped<PythonScriptService>();
 builder.Services.AddAuthorization();
 builder.Services.AddScoped<TokenService>();
 // builder.Services.AddTransient<IEmailService, EmailService>();
