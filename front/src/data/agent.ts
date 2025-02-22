@@ -44,63 +44,6 @@ const Auth = {
     request.put('Auth/edit', userData, token),
 };
 
-const Appointments = {
-  getAll: (token?: string) => request.get('Appointment/GetAppointments', token),
-  add: (values: any, token?: string) =>
-    request.post('Appointment/AddAppointments', values, token),
-  getUserAppointments: (token?: string) =>
-    request.get('Appointment/GetUserAppointments', token),
-  removeUserAppointment: (id: number, token?: string) =>
-    request.delete(`Appointment/DeleteUserAppointment/${id}`, token),
-  removeAppointment: (id: number, token?: string) =>
-    request.delete(`Appointment/delete${id}`, token),
-};
-
-const Municipalities = {
-  getAll: (token?: string) => request.get('Municipality/GetAllMunicipalities'),
-};
-
-const Email = {
-  sendPassport: (
-    userId: string,
-    toEmail: string,
-    subject: string,
-    message: string,
-    token?: string,
-  ) =>
-    request.post(
-      `Email/send-passport-pdf?userId=${userId}&toEmail=${toEmail}&subject=${encodeURIComponent(subject)}&message=${encodeURIComponent(message)}`,
-      {},
-      token,
-    ),
-
-  sendIdCard: (
-    userId: string,
-    toEmail: string,
-    subject: string,
-    message: string,
-    token?: string,
-  ) =>
-    request.post(
-      `Email/send-pdf?userId=${userId}&toEmail=${toEmail}&subject=${encodeURIComponent(subject)}&message=${encodeURIComponent(message)}`,
-      {},
-      token,
-    ),
-
-  sendDriverLicence: (
-    userId: string,
-    toEmail: string,
-    subject: string,
-    message: string,
-    token?: string | undefined,
-  ) =>
-    request.post(
-      `Email/send-driver-license-email?userId=${userId}&toEmail=${toEmail}&subject=${encodeURIComponent(subject)}&message=${encodeURIComponent(message)}`,
-      {},
-      token,
-    ),
-};
-
 const Documents = {
   upload: (file: File, token?: string) => {
     const formData = new FormData();
@@ -112,10 +55,7 @@ const Documents = {
 
 const agent = {
   Auth,
-  Appointments,
-  Municipalities,
   FileExport,
-  Email,
   Documents,
 };
 

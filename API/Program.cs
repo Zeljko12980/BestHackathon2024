@@ -8,11 +8,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using API.Services.Interfaces;
+
 using API.Services;
 using API;
-using API.Hubs;
-using Microsoft.AspNetCore.SignalR;
+
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -56,9 +55,9 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddAuthorization();
 builder.Services.AddScoped<TokenService>();
-builder.Services.AddTransient<IEmailService, EmailService>();
-builder.Services.AddScoped<IPDFService,PDFService>();
-builder.Services.AddScoped<IMunicipalityService,MunicipalityService>();
+// builder.Services.AddTransient<IEmailService, EmailService>();
+// builder.Services.AddScoped<IPDFService,PDFService>();
+
 
 
 builder.Services.AddSingleton<TwilioService>();
@@ -113,7 +112,7 @@ app.UseHttpsRedirection();
 // app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:5173").SetIsOriginAllowed(origin => true).AllowCredentials());
 
 app.UseAuthorization();
-app.MapHub<StreamHub>("/hubs/stream");
+
 app.MapControllers();
 
 var scope=app.Services.CreateScope();

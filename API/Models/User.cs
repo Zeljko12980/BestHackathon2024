@@ -7,21 +7,18 @@ using Microsoft.AspNetCore.Identity;
 namespace API.Models
 {
   
-        public class User : IdentityUser
+      public class User : IdentityUser
         {
             public required string FirstName { get; set; }
             public required string LastName { get; set; }
             public required string JMBG { get; set; }
-            public  string Pol { get; set; }
-            public  DateOnly DatumRodjenja {get;set;}
 
-            public  string AdresaPrebivalista {get;set;}
-            public  string OpstinaPrebivalista{get;set;}
-            public ICollection<Appointment> Appointments { get; set; }
-            public  ICollection<Request>? Requests{get;set;}
-         
-         
+            // Veza sa razredom koji učenik pohađa
+            public int? SchoolClassId { get; set; }
+            public SchoolClass SchoolClass { get; set; }  // Razred koji učenik pohađa
 
+            // Lista razreda koje profesor predaje
+            public List<SchoolClass> TeachingClasses { get; set; } = new List<SchoolClass>(); // Razredi koje profesor predaje (ako je korisnik profesor)
         }
 
 }

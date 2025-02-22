@@ -32,34 +32,34 @@ namespace API.Data
 
             // Configure relationships
         
-          
+           builder.Entity<User>()
+                .HasMany(u => u.TeachingClasses)
+                .WithMany(c => c.Teachers)
+                .UsingEntity(j => j.ToTable("TeacherClasses"));
+
+            // Veza između učenika i razreda
+           builder.Entity<User>()
+    .HasOne(u => u.SchoolClass)
+    .WithMany(c => c.Students)
+    .HasForeignKey(u => u.SchoolClassId)
+    .IsRequired(false);  // This ensures SchoolClassId can be nullable
+
         
        
 
 
-        builder.Entity<Request>()
-    .HasOne(r => r.RequestType)
-    .WithMany()
-    .HasForeignKey(r => r.RequestTypeID)
-    .OnDelete(DeleteBehavior.Cascade);
+        
 
 
-builder.Entity<RequestSubtype>()
-    .HasOne(rs => rs.RequestType)
-    .WithMany(rt => rt.RequestSubTypeList)
-    .HasForeignKey(rs => rs.RequestTypeID)
-    .OnDelete(DeleteBehavior.Cascade);
+
 
 
 
         }
 
-        public DbSet<Appointment> Appointments { get; set; }
-      
-        public DbSet<Municipality> Municipalities { get; set; }
-        public DbSet<Request> Requests { get; set; }
-        public DbSet<RequestType> RequestTypes { get; set; }
-        public DbSet<RequestSubtype> RequestSubtypes { get; set; }
+        public DbSet<SchoolClass> SchoolClasses { get; set; }
+
+    
        
     }
 }
