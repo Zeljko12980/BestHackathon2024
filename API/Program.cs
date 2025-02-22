@@ -1,23 +1,3 @@
-global using System.ComponentModel.DataAnnotations;
-global using API.Data;
-global using API.Models;
-global using API.Services;
-using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-
-using API.Services;
-using API;
-
-// using API.Services.Interfaces;
-
-using API;
-
-using Microsoft.AspNetCore.SignalR;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,10 +7,12 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<StoreContext>(opt=>{
 opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
 builder.Services.AddIdentityCore<User>()
 .AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<StoreContext>()
 .AddDefaultTokenProviders();
+
 builder.Services.AddSignalR();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -57,15 +39,19 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddScoped<PythonScriptService>();
+
 builder.Services.AddAuthorization();
-builder.Services.AddScoped<TokenService>();
-// builder.Services.AddTransient<IEmailService, EmailService>();
-// builder.Services.AddScoped<IPDFService,PDFService>();
+builder.Services.AddScoped<ITokenService,TokenService>();
+builder.Services.AddTransient<IEmailService, EmailService>();
+builder.Services.AddScoped<IPDFService,PDFService>();
+builder.Services.AddScoped<IAuthService,AuthService>();
+builder.Services.AddScoped<IDocumentService,DocumentService>();
+builder.Services.AddScoped<IStudentService,StudentService>();
 
 
 
-builder.Services.AddSingleton<TwilioService>();
+
+builder.Services.AddSingleton<ITwilioService,TwilioService>();
 
 builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
 builder.Services.AddSwaggerGen(c =>
@@ -96,7 +82,7 @@ builder.Services.AddSwaggerGen(c =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-// builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
+builder.Services.AddAutoMapper(typeof(MapperProfile).Assembly);
 
 var app = builder.Build();
 
@@ -105,16 +91,11 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    // app.UseCors(x => x
-    //     .AllowAnyMethod()
-    //     .AllowAnyHeader()
-    //     .SetIsOriginAllowed(origin => true) // allow any origin
-    //     .AllowCredentials()); // allow credentials
+   
 }
 app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
-// app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:5173").SetIsOriginAllowed(origin => true).AllowCredentials());
 
 app.UseAuthorization();
 
