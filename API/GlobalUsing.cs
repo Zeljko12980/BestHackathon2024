@@ -37,3 +37,4 @@ global using AutoMapper;
 global using Microsoft.Extensions.Configuration;
 global using API.Services.Api;
 global using Newtonsoft.Json;
+global using Newtonsoft.Json.Linq;

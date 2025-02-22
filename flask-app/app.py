@@ -31,11 +31,11 @@ def prepoznaj_lice():
         while True:
             ime = prepoznavanje_lica(video_capture)
             if ime:
-                print(f"Welcome, {ime}")
+                
                 prepoznat = True
                 video_capture.release()
                 cv2.destroyAllWindows()
-                return jsonify({"ime": ime}), 200  # Vraćamo ime prepoznate osobe
+                return jsonify(ime), 200  # Vraćamo ime prepoznate osobe
 
             # Ako pritisnemo 'q', prekidamo petlju
             if cv2.waitKey(1) & 0xFF == ord('q'):

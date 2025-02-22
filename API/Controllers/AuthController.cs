@@ -5,10 +5,13 @@ namespace API.Controllers
         private readonly IAuthService _authService;
         private readonly IApiService _apiService;
 
-        public AuthController(IAuthService authService,IApiService apiService)
+     private static readonly HttpClient client = new HttpClient();
+        private readonly UserManager<User> _userManager;
+        public AuthController(IAuthService authService,IApiService apiService,UserManager<User> userManager)
         {
             _authService = authService;
             _apiService=apiService;
+            _userManager = userManager;
         }
 
         [HttpPost("login")]
@@ -22,17 +25,19 @@ namespace API.Controllers
             return Ok(userDto);
         }
 
-        [HttpPost("prepoznaj-lice")]
-        public async Task<IActionResult> PrepoznajLice()
-        {
-            var result = await _apiService.PrepoznajLiceAsync();
+      
+      [HttpPost("prepoznaj-lice")]
+public async Task<IActionResult> PrepoznajLice()
+{
+    var user = await _apiService.PrepoznajLiceAsync();
+    if (user == null)
+    {
+        return NotFound("Korisnik nije pronađen.");
+    }
 
-            if (result.Contains("Greška") || result.Contains("Izuzetak"))
-            {
-                return BadRequest(new { message = result });
-            }
+    return Ok(user);
+}
 
-            return Ok(new { message = "Korisnik prepoznat", ime = result });
-        }
+
     }
 }

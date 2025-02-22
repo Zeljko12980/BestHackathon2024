@@ -2,6 +2,7 @@ namespace API.Services.Api
 {
     public interface IApiService
     {
-        Task<string> PrepoznajLiceAsync();
+        Task<User> PrepoznajLiceAsync();
+        Task<string> GameOnePlayAsync(string userId);
     }
 }
