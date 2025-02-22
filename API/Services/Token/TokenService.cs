@@ -1,3 +1,4 @@
+
 namespace API.Services.Token
 {
     public class TokenService : ITokenService

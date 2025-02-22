@@ -1,4 +1,6 @@
 
+using Tesseract;
+
 namespace API.Services.Document
 {
     public class DocumentService : IDocumentService
