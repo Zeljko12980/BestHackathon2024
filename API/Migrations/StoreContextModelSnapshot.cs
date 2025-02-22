@@ -144,13 +144,13 @@ namespace API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "eaf464d8-47a1-4199-af24-50c3c6d81e95",
+                            Id = "628afc77-3f53-4fa1-848f-a9bdc9e1f86f",
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
-                            Id = "d9a6acf5-208f-4595-bbc6-d408d21b5bde",
+                            Id = "24886498-bd63-4ec8-8572-f6dfc90e75c2",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

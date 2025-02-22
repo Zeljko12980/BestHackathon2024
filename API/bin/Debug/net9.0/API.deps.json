@@ -23,6 +23,7 @@
           "System.Linq.Async": "6.0.1",
           "Tesseract": "5.2.0",
           "Twilio": "7.3.1",
+          "iTextSharp": "5.5.13.4",
           "itext7": "8.0.5",
           "itext7.bouncy-castle-adapter": "8.0.5",
           "itext7.commons": "8.0.5",
@@ -43,11 +44,11 @@
           }
         }
       },
-      "BouncyCastle.Cryptography/2.2.1": {
+      "BouncyCastle.Cryptography/2.4.0": {
         "runtime": {
           "lib/net6.0/BouncyCastle.Cryptography.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.2.1.47552"
+            "fileVersion": "2.4.0.33771"
           }
         }
       },
@@ -164,7 +165,7 @@
       },
       "itext.bouncy-castle-adapter/8.0.5": {
         "dependencies": {
-          "BouncyCastle.Cryptography": "2.2.1",
+          "BouncyCastle.Cryptography": "2.4.0",
           "itext.commons": "8.0.5"
         },
         "runtime": {
@@ -215,6 +216,17 @@
       "itext7.pdfhtml/5.0.5": {
         "dependencies": {
           "itext.pdfhtml": "5.0.5"
+        }
+      },
+      "iTextSharp/5.5.13.4": {
+        "dependencies": {
+          "BouncyCastle.Cryptography": "2.4.0"
+        },
+        "runtime": {
+          "lib/net461/itextsharp.dll": {
+            "assemblyVersion": "5.5.13.4",
+            "fileVersion": "5.5.13.4"
+          }
         }
       },
       "Microsoft.AspNetCore.Authentication.Abstractions/2.3.0": {
@@ -1504,12 +1516,12 @@
       "path": "automapper/13.0.1",
       "hashPath": "automapper.13.0.1.nupkg.sha512"
     },
-    "BouncyCastle.Cryptography/2.2.1": {
+    "BouncyCastle.Cryptography/2.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-A6Zr52zVqJKt18ZBsTnX0qhG0kwIQftVAjLmszmkiR/trSp8H+xj1gUOzk7XHwaKgyREMSV1v9XaKrBUeIOdvQ==",
-      "path": "bouncycastle.cryptography/2.2.1",
-      "hashPath": "bouncycastle.cryptography.2.2.1.nupkg.sha512"
+      "sha512": "sha512-SwXsAV3sMvAU/Nn31pbjhWurYSjJ+/giI/0n6tCrYoupEK34iIHCuk3STAd9fx8yudM85KkLSVdn951vTng/vQ==",
+      "path": "bouncycastle.cryptography/2.4.0",
+      "hashPath": "bouncycastle.cryptography.2.4.0.nupkg.sha512"
     },
     "EPPlus/7.4.0": {
       "type": "package",
@@ -1594,6 +1606,13 @@
       "sha512": "sha512-lFNsTrwUT8MPUcQqW7TKcxBa4ha3NGsls4L+j/pao8DZzlNrKIrGu+BZpVo9tjQRdl4pQgAMNav0K5C+cU+/zA==",
       "path": "itext7.pdfhtml/5.0.5",
       "hashPath": "itext7.pdfhtml.5.0.5.nupkg.sha512"
+    },
+    "iTextSharp/5.5.13.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/cvCNv8AJ+XuD99u4NfHSSxkBJKTdvP36wcfQF9V1Cjzi1ycyFSa4vJ64a3DhFVUTKVO60WF8OmAqngQDTHgYA==",
+      "path": "itextsharp/5.5.13.4",
+      "hashPath": "itextsharp.5.5.13.4.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.Abstractions/2.3.0": {
       "type": "package",

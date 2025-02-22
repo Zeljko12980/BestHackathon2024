@@ -1,39 +1,32 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "/Users/crni/Desktop/BestHackathon2024/API/API.csproj": {}
+    "C:\\Users\\ikano\\source\\repos\\Zeljko12980\\BestHackathon2024\\api\\API.csproj": {}
   },
   "projects": {
-    "/Users/crni/Desktop/BestHackathon2024/API/API.csproj": {
+    "C:\\Users\\ikano\\source\\repos\\Zeljko12980\\BestHackathon2024\\api\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/crni/Desktop/BestHackathon2024/API/API.csproj",
+        "projectUniqueName": "C:\\Users\\ikano\\source\\repos\\Zeljko12980\\BestHackathon2024\\api\\API.csproj",
         "projectName": "API",
-        "projectPath": "/Users/crni/Desktop/BestHackathon2024/API/API.csproj",
-        "packagesPath": "/Users/crni/.nuget/packages/",
-        "outputPath": "/Users/crni/Desktop/BestHackathon2024/API/obj/",
-=======
-    "C:\\Users\\ikano\\source\\repos\\Zeljko12980\\BestHackathon2024\\API\\API.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\ikano\\source\\repos\\Zeljko12980\\BestHackathon2024\\API\\API.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\ikano\\source\\repos\\Zeljko12980\\BestHackathon2024\\API\\API.csproj",
-        "projectName": "API",
-        "projectPath": "C:\\Users\\ikano\\source\\repos\\Zeljko12980\\BestHackathon2024\\API\\API.csproj",
+        "projectPath": "C:\\Users\\ikano\\source\\repos\\Zeljko12980\\BestHackathon2024\\api\\API.csproj",
         "packagesPath": "C:\\Users\\ikano\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ikano\\source\\repos\\Zeljko12980\\BestHackathon2024\\API\\obj\\",
->>>>>>> g
+        "outputPath": "C:\\Users\\ikano\\source\\repos\\Zeljko12980\\BestHackathon2024\\api\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/crni/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\ikano\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -50,9 +43,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
+          "auditMode": "all"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -118,6 +111,10 @@
               "target": "Package",
               "version": "[7.3.1, )"
             },
+            "iTextSharp": {
+              "target": "Package",
+              "version": "[5.5.13.4, )"
+            },
             "itext7": {
               "target": "Package",
               "version": "[8.0.5, )"
@@ -154,7 +151,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.2.24474.11/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
