@@ -30,16 +30,12 @@ namespace API.Controllers
             _pythonScriptService=pythonScriptService;
         }
 
-[HttpGet("recognizeUser/{name}")]
+  [HttpGet("recognize")]
         public async Task<IActionResult> RecognizeUser(string name)
         {
-            // Putanja do tvoje Python skripte
-            string scriptPath = Path.Combine(Directory.GetCurrentDirectory(), "Skripta\\AI Face Recgn\\main.py");
-
-            
             // Pozivanje Python skripte sa imenom korisnika kao argumentom
-            string result = _pythonScriptService.RunPythonScript(scriptPath, name);
-            
+            string result = await _pythonScriptService.RecognizeFaceAsync();
+
             if (result.Contains("Welcome"))
             {
                 return Ok(new { message = result }); // Korisnik prepoznat
@@ -49,6 +45,7 @@ namespace API.Controllers
                 return NotFound(new { message = "Nepoznata osoba" });
             }
         }
+
 
         [HttpPost("login")]
         public async Task<ActionResult<UserDTO>> Login (LoginDTO login){

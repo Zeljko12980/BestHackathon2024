@@ -1,35 +1,75 @@
+using System;
 using System.Diagnostics;
+using System.IO;
+using System.Threading.Tasks;
+
 namespace API.Services
 {
     public class PythonScriptService
     {
-         public string RunPythonScript(string scriptPath, string args)
-    {
-        string result = string.Empty;
-        
-        try
+        public async Task<string> RecognizeFaceAsync()
         {
-            ProcessStartInfo start = new ProcessStartInfo();
-            start.FileName = "python"; // Može biti "python3" na nekim sistemima
-            start.Arguments = $"{scriptPath} {args}"; // Putanja do skripte i argumenti (ako ih ima)
-            start.UseShellExecute = false;
-            start.RedirectStandardOutput = true; // Da bi mogao da pročitaš izlaz iz skripte
-            start.CreateNoWindow = true;
+            string result = string.Empty;
 
-            using (Process process = Process.Start(start))
+            // Putanja do Python skripte (možemo koristiti apsolutnu ili relativnu putanju)
+             string scriptPath = @"C:\Users\ikano\source\repos\Zeljko12980\BestHackathon2024\API\skripta\AI Face Recgn\main.py";  // Putanja do skripte (možeš promeniti putanju)
+
+
+  if (!File.Exists(scriptPath))
             {
-                using (StreamReader reader = process.StandardOutput)
+                return "Python skripta nije pronađena.";
+            }
+            try
+            {
+                // Pokretanje Python skripte iz fajla
+                result = await RunPythonScriptAsync(scriptPath);
+            }
+            catch (Exception ex)
+            {
+                result = $"Error: {ex.Message}";
+            }
+
+            return result;
+        }
+
+        private async Task<string> RunPythonScriptAsync(string scriptPath)
+        {
+            string result = string.Empty;
+
+            try
+            {
+                // Pokretanje Python skripte u novom procesu
+                ProcessStartInfo start = new ProcessStartInfo();
+                start.FileName = "python"; // Može biti "python3" na nekim sistemima
+                start.Arguments = scriptPath; // Pokreće Python fajl
+                start.UseShellExecute = false;
+                start.RedirectStandardOutput = true; // Da bi mogao da pročitaš izlaz iz skripte
+                start.RedirectStandardError = true; // Da bismo uhvatili greške
+                start.CreateNoWindow = true;
+
+                using (Process process = Process.Start(start))
                 {
-                    result = reader.ReadToEnd(); // Čitaj izlaz iz Python skripte
+                    using (StreamReader reader = process.StandardOutput)
+                    {
+                        result = await reader.ReadToEndAsync(); // Čitaj izlaz iz Python skripte
+                    }
+
+                    using (StreamReader errorReader = process.StandardError)
+                    {
+                        string error = await errorReader.ReadToEndAsync();
+                        if (!string.IsNullOrEmpty(error))
+                        {
+                            result = $"Error: {error}";
+                        }
+                    }
                 }
             }
-        }
-        catch (Exception ex)
-        {
-            result = $"Error: {ex.Message}";
-        }
+            catch (Exception ex)
+            {
+                result = $"Error: {ex.Message}";
+            }
 
-        return result;
-    }
+            return result;
+        }
     }
 }
