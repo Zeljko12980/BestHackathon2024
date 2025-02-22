@@ -17,6 +17,17 @@ def run_game():
         return jsonify({"message": "Game started successfully"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+@app.route('/run-quizz', methods=['GET'])
+def run_quizz():
+    try:
+        user_id = request.args.get('userId')
+        subprocess.Popen(['python', 'quizz.py', user_id])  # Koristite samo 'python' ako koristite Windows
+        print(user_id)
+
+        return jsonify({"message": "Quizz started successfully"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500    
 
 @app.route('/prepoznaj-lice', methods=['POST'])
 def prepoznaj_lice():
