@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zgNBejV+C6M=",
+  "dgSpecHash": "beec5wBys50=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ikano\\source\\repos\\lalana32\\eGradskaUprava\\api\\API.csproj",
+  "projectFilePath": "C:\\Users\\ikano\\source\\repos\\Zeljko12980\\BestHackathon2024\\api\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ikano\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\ikano\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",

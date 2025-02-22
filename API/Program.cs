@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using API.Services.Interfaces;
-using API.Services;
+
 using API;
-using API.Hubs;
+
 using Microsoft.AspNetCore.SignalR;
 
 
@@ -53,7 +53,7 @@ builder.Services.AddCors(options =>
     });
 });
 
-
+builder.Services.AddScoped<PythonScriptService>();
 builder.Services.AddAuthorization();
 builder.Services.AddScoped<TokenService>();
 builder.Services.AddTransient<IEmailService, EmailService>();
@@ -113,7 +113,7 @@ app.UseHttpsRedirection();
 // app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:5173").SetIsOriginAllowed(origin => true).AllowCredentials());
 
 app.UseAuthorization();
-app.MapHub<StreamHub>("/hubs/stream");
+
 app.MapControllers();
 
 var scope=app.Services.CreateScope();
