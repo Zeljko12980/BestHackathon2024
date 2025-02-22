@@ -89,6 +89,9 @@ namespace API.Migrations
                     b.Property<int?>("SchoolClassId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("Score")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("TEXT");
 
@@ -141,13 +144,13 @@ namespace API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "aab89c2e-d40d-4ed5-9ec0-67bccb158245",
+                            Id = "eaf464d8-47a1-4199-af24-50c3c6d81e95",
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
-                            Id = "5b62845c-1f3e-45d7-8dcc-89564522a006",
+                            Id = "d9a6acf5-208f-4595-bbc6-d408d21b5bde",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

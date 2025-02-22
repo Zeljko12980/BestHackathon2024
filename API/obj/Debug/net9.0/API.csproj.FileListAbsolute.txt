@@ -342,3 +342,5 @@ C:\Users\ikano\source\repos\Zeljko12980\BestHackathon2024\api\obj\Debug\net9.0\A
 C:\Users\ikano\source\repos\Zeljko12980\BestHackathon2024\api\obj\Debug\net9.0\API.genruntimeconfig.cache
 C:\Users\ikano\source\repos\Zeljko12980\BestHackathon2024\api\obj\Debug\net9.0\ref\API.dll
 >>>>>>> 1097d803f0e4e42d79cc46cba4738649596ef8be
+C:\Users\ikano\source\repos\Zeljko12980\BestHackathon2024\api\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\ikano\source\repos\Zeljko12980\BestHackathon2024\api\bin\Debug\net9.0\System.Linq.Async.dll

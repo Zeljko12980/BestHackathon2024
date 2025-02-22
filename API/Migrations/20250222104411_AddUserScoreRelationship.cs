@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace API.Migrations
 {
     /// <inheritdoc />
-    public partial class NewInitialCreate : Migration
+    public partial class AddUserScoreRelationship : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -70,6 +70,7 @@ namespace API.Migrations
                     LastName = table.Column<string>(type: "TEXT", nullable: false),
                     JMBG = table.Column<string>(type: "TEXT", nullable: false),
                     SchoolClassId = table.Column<int>(type: "INTEGER", nullable: true),
+                    Score = table.Column<int>(type: "INTEGER", nullable: false),
                     UserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
@@ -209,8 +210,8 @@ namespace API.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "5b62845c-1f3e-45d7-8dcc-89564522a006", null, "Admin", "ADMIN" },
-                    { "aab89c2e-d40d-4ed5-9ec0-67bccb158245", null, "Member", "MEMBER" }
+                    { "d9a6acf5-208f-4595-bbc6-d408d21b5bde", null, "Admin", "ADMIN" },
+                    { "eaf464d8-47a1-4199-af24-50c3c6d81e95", null, "Member", "MEMBER" }
                 });
 
             migrationBuilder.CreateIndex(

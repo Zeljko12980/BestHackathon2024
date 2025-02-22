@@ -3,15 +3,10 @@ import face_recognition
 import cv2
 import os
 import numpy as np
-<<<<<<< HEAD
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-=======
-
-app = Flask(__name__)
->>>>>>> 690e2ac79a7e145e7089cec8aaa861c86445192a
 
 # Folder sa poznatim licima
 poznati_folder = "Poznati"

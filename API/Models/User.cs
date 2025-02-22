@@ -19,6 +19,9 @@ namespace API.Models
 
             // Lista razreda koje profesor predaje
             public List<SchoolClass> TeachingClasses { get; set; } = new List<SchoolClass>(); // Razredi koje profesor predaje (ako je korisnik profesor)
+       
+            public int Score{get; set; }
+           // public virtual Score Score { get; set; }
         }
 
 }

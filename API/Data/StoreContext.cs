@@ -11,6 +11,7 @@ namespace API.Data
 {
     public class StoreContext : IdentityDbContext<User>
     {
+       //  public DbSet<Score> Scores { get; set; }
         public StoreContext()
         {
         }
@@ -44,7 +45,7 @@ namespace API.Data
     .HasForeignKey(u => u.SchoolClassId)
     .IsRequired(false);  // This ensures SchoolClassId can be nullable
 
-        
+      
        
 
 
