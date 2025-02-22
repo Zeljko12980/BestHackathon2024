@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "/Users/crni/Desktop/BestHackathon2024/API/API.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "/Users/crni/Desktop/BestHackathon2024/API/API.csproj",
         "packagesPath": "/Users/crni/.nuget/packages/",
         "outputPath": "/Users/crni/Desktop/BestHackathon2024/API/obj/",
+=======
+    "C:\\Users\\ikano\\source\\repos\\Zeljko12980\\BestHackathon2024\\API\\API.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\ikano\\source\\repos\\Zeljko12980\\BestHackathon2024\\API\\API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ikano\\source\\repos\\Zeljko12980\\BestHackathon2024\\API\\API.csproj",
+        "projectName": "API",
+        "projectPath": "C:\\Users\\ikano\\source\\repos\\Zeljko12980\\BestHackathon2024\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\ikano\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ikano\\source\\repos\\Zeljko12980\\BestHackathon2024\\API\\obj\\",
+>>>>>>> g
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/crni/.nuget/NuGet/NuGet.Config"

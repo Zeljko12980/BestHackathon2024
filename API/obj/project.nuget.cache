@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "XRJkCoaJgZA=",
   "success": true,
   "projectFilePath": "/Users/crni/Desktop/BestHackathon2024/API/API.csproj",
+=======
+  "dgSpecHash": "N4F1kr6F7rE=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ikano\\source\\repos\\Zeljko12980\\BestHackathon2024\\API\\API.csproj",
+>>>>>>> g
   "expectedPackageFiles": [
     "/Users/crni/.nuget/packages/automapper/13.0.1/automapper.13.0.1.nupkg.sha512",
     "/Users/crni/.nuget/packages/bouncycastle.cryptography/2.2.1/bouncycastle.cryptography.2.2.1.nupkg.sha512",
