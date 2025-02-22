@@ -9,6 +9,10 @@ from PyQt5.QtWidgets import QApplication, QDialog, QLabel, QVBoxLayout
 from PyQt5.QtCore import QTimer, Qt
 from PyQt5.QtGui import QFont
 import sys
+import sqlite3
+import os
+import requests
+import sys
 
 warnings.filterwarnings("ignore")
 
@@ -154,6 +158,8 @@ def display_message_pyqt5(title, message, color, delay):
 cv2.namedWindow('Recycle Game', cv2.WND_PROP_FULLSCREEN)
 cv2.setWindowProperty('Recycle Game', cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
 
+print(sys.argv)
+
 # Main game loop
 while True:
     success, img = cap.read()
@@ -227,7 +233,7 @@ while True:
             restart_game()
         elif are_rectangles_overlapping(bottle_rect, bin2_rect):
             print("Level 1 = Neuspješan")
-            score -= 1
+            
             display_message_pyqt5("Pogrešan odgovor", "Staklena boca mora ići u kontenjer namjenjen za staklo!", "red", 5000)
             current_level = 2  # Move to Level 2
             restart_game()
@@ -255,7 +261,7 @@ while True:
         elif are_rectangles_overlapping(waste_rect, bin3_rect) or \
                 are_rectangles_overlapping(waste_rect, bin5_rect):
             print("Level 2 = Neuspješan")
-            score -= 1
+            
             display_message_pyqt5("Pogrešan odgovor", "Metalni otpad mora ići u kontenjer namjenjen za metal!", "red", 5000)
             current_level = 3  # Move to Level 3
             restart_game()
@@ -278,24 +284,24 @@ while True:
 
         if are_rectangles_overlapping(hero_rect, polluted_rect):
             print("Level 3 = uspješan")
-            score += 1
+           
             display_message_pyqt5("Tačan odgovor", "Bravo, uspješno si riješio level. Kraj testa!", "blue", 3000)
             break  # End the game
         elif are_rectangles_overlapping(hero_rect, clean_rect):
             print("Level 3 = Neuspješan")
-            score -= 1
+            
             display_message_pyqt5("Pogrešan odgovor", "Pogrešan odgovor\nHeroj mora poći u zagadjen grad!", "red", 5000)
             break  # End the game
         elif remaining_time <= 0:
             print("Level 3 = Neuspješan (Vrijeme isteklo)")
-            score -= 1
+            
             display_message_pyqt5("Pogrešan odgovor", "Heroj mora poći u zagadjen grad!", "red", 5000)
             break  # End the game
 
     # After timer expires
     if remaining_time <= 0:
         print(f"Vrijme je isteklo! Level {current_level} = Neuspješan")
-        score -= 1
+        
         if current_level == 1:
             display_message_pyqt5("Isteklo vrijeme", "Vrijeme je isteklo!\nStaklena boca mora ići u kontenjer namjenjen za staklo!", "red", 5000)
             current_level = 2  # Move to Level 2
@@ -322,4 +328,23 @@ cap.release()
 cv2.destroyAllWindows()
 
 # Display final score
+ # ili unesite pravi rezultat koji želite
 print(f"Konačni rezultat: {score}")
+print(f"Id: {sys.argv[1]}")
+
+# API endpoint sa parametrima u URL-u
+api_url = f'http://localhost:5024/api/Score/increase-score/{sys.argv[1]}/{score}'
+
+# Pozivanje API-ja sa PUT metodom
+response = requests.put(api_url)
+
+# Provera odgovora od API-ja
+if response.status_code == 200:
+    print(f"Uspešno upisan rezultat za korisnika {sys.argv[1]}")
+else:
+    print(f"Došlo je do greške pri upisu rezultata. Status kod: {response.status_code}")
+
+
+
+
+

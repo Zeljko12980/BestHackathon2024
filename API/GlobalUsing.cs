@@ -34,3 +34,6 @@ global using API.Controllers;
 global using API.Services.Score;
 global using API.Services.Student;
 global using AutoMapper;
+global using Microsoft.Extensions.Configuration;
+global using API.Services.Api;
+global using Newtonsoft.Json;

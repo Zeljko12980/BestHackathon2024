@@ -1,4 +1,5 @@
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -47,7 +48,9 @@ builder.Services.AddScoped<IPDFService,PDFService>();
 builder.Services.AddScoped<IAuthService,AuthService>();
 builder.Services.AddScoped<IDocumentService,DocumentService>();
 builder.Services.AddScoped<IStudentService,StudentService>();
-
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<IApiService, ApiService>();
+builder.Services.AddScoped<IScoreService, ScoreService>();
 
 
 
