@@ -7,6 +7,19 @@ public class StudentsController : BaseAPIController
         _studentService = studentService;
     }
 
+    [HttpGet("getAllStudents")]
+    public async Task<ActionResult<IEnumerable<User>>> GetAllStudents()
+    {
+        var students = await _studentService.GetAllStudents();
+
+        if (students == null)
+        {
+            return NotFound("Nema učenika u ovom razredu.");
+        }
+
+        return Ok(students);
+    }
+
     [HttpGet("class/{classId}")]
     public async Task<ActionResult<IEnumerable<User>>> GetStudentsByClass(int classId)
     {

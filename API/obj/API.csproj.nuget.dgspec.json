@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/crni/Desktop/BestHackathon2024/API/API.csproj": {}
+    "C:\\Users\\Korisnik\\Desktop\\BestHackathon2024\\api\\API.csproj": {}
   },
   "projects": {
-    "/Users/crni/Desktop/BestHackathon2024/API/API.csproj": {
+    "C:\\Users\\Korisnik\\Desktop\\BestHackathon2024\\api\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/crni/Desktop/BestHackathon2024/API/API.csproj",
+        "projectUniqueName": "C:\\Users\\Korisnik\\Desktop\\BestHackathon2024\\api\\API.csproj",
         "projectName": "API",
-        "projectPath": "/Users/crni/Desktop/BestHackathon2024/API/API.csproj",
-        "packagesPath": "/Users/crni/.nuget/packages/",
-        "outputPath": "/Users/crni/Desktop/BestHackathon2024/API/obj/",
+        "projectPath": "C:\\Users\\Korisnik\\Desktop\\BestHackathon2024\\api\\API.csproj",
+        "packagesPath": "C:\\Users\\Korisnik\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Korisnik\\Desktop\\BestHackathon2024\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/crni/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Korisnik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -140,7 +142,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

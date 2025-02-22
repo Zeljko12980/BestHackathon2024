@@ -8,14 +8,12 @@ import './css/satoshi.css';
 import 'flatpickr/dist/flatpickr.min.css';
 import { Provider } from 'react-redux';
 import { store } from './store/configureStore';
-import DriftChat from './pages/UiElements/driftchat';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
     <React.StrictMode>
       <Router>
         <App />
-        <DriftChat />
       </Router>
     </React.StrictMode>
   </Provider>,
