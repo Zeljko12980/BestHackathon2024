@@ -1,7 +1,10 @@
+import sys
+
 import cv2
 import mediapipe as mp
 import time
 import numpy as np
+import requests
 from PIL import Image, ImageDraw, ImageFont
 
 # Constants

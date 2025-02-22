@@ -30,10 +30,10 @@ def run_quizz():
         return jsonify({"error": str(e)}), 500    
 
 @app.route('/run-left', methods=['GET'])
-def run_quizz():
+def run_left():
     try:
         user_id = request.args.get('userId')
-        subprocess.Popen(['python', 'left_right.py', user_id])  # Koristite samo 'python' ako koristite Windows
+        subprocess.Popen(['python3', 'left_right.py', user_id])  # Koristite samo 'python' ako koristite Windows
         print(user_id)
 
         return jsonify({"message": "Quizz started successfully"}), 200
