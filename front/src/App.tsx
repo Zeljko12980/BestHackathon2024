@@ -14,7 +14,7 @@ import Tables from './pages/Tables';
 import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
 import DefaultLayout from './layout/DefaultLayout';
-import HomePage from './pages/HomePage/HomePage';
+import HomePage from './pages/HomePage/HomePage';  // Import HomePage
 import QueueDocuments from './pages/Queue/QueueDocuments';
 import QueueRequests from './pages/Queue/QueueRequests';
 import QueuePaying from './pages/Queue/QueuePaying';
@@ -45,7 +45,16 @@ function App() {
           element={
             <>
               <PageTitle title="eCommerce Dashboard | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <HomePage />
+              <SignIn />
+            </>
+          }
+        />
+        <Route
+          path="/home"  // Add the /home route
+          element={
+            <>
+              <PageTitle title="Home Page" />
+              <HomePage />  {/* Display the HomePage */}
             </>
           }
         />

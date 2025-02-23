@@ -1,16 +1,18 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 const ClassItem: React.FC<{ title: string; classId: number }> = ({
   title,
   classId,
 }) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md mb-4 hover:shadow-xl hover:bg-gray-100 hover:scale-105 transition-all duration-300 transform">
+    <div className="bg-white/80 backdrop-blur-lg border border-gray-200 p-6 rounded-3xl shadow-xl mb-6 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:bg-white">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-semibold text-gray-800">{title}</h2>
+        <h2 className="text-2xl font-extrabold text-gray-900 tracking-wide">
+          {title}
+        </h2>
         <NavLink
-          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition-all duration-300 transform hover:scale-110"
-          to={`/class/${classId}`} // Koristimo ID razreda u URL-u
+          className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-2 px-6 rounded-xl font-semibold shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 hover:from-indigo-500 hover:to-purple-600 focus:outline-none focus:ring-4 focus:ring-blue-300"
+          to={`/class/${classId}`}
         >
           Uđi u čas
         </NavLink>

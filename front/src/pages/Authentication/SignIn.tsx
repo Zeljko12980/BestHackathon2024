@@ -15,7 +15,7 @@ const SignIn: React.FC = () => {
   const logInSubmit: SubmitHandler<FieldValues> = async (data: FieldValues) => {
     const response = await dispatch(logIn(data));
     console.log(response);
-    navigate('/');
+    navigate('/home');
   };
   return (
     <>
@@ -26,8 +26,7 @@ const SignIn: React.FC = () => {
           <div className="hidden w-full xl:block xl:w-1/2">
             <div className="py-17.5 px-26 text-center">
               <p className="2xl:px-20">
-                Unesite svoje podatke da biste pristupili funkcijama i
-                resursima. Ako nemate nalog, registrujte se sada!
+              Unesite svoje podatke da biste pristupili funkcijama i resursima.
               </p>
 
               <span className="mt-15 inline-block">
@@ -242,15 +241,7 @@ const SignIn: React.FC = () => {
                   />
                 </div>
 
-                <div className="mt-6 text-center">
-                  <p>
-                    Nemate nalog?{' '}
-                    <Link to="/auth/signup" className="text-primary">
-                      Registrujte se
-                    </Link>
-                  </p>
-                </div>
-              </form>
+                             </form>
             </div>
           </div>
         </div>
