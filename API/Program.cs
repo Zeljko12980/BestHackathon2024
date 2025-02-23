@@ -51,6 +51,7 @@ builder.Services.AddHttpClient();
 builder.Services.AddScoped<IApiService, ApiService>();
 builder.Services.AddScoped<IScoreService, ScoreService>();
 builder.Services.AddScoped<ExportService>();
+builder.Services.AddScoped<ISchoolClassService,SchoolClassService>();
 
 
 

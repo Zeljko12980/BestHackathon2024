@@ -41,3 +41,4 @@ global using Newtonsoft.Json;
 global using System.IdentityModel.Tokens.Jwt;
 global using API.AutoMapper;
 global using API.Services.Student;
+global using API.Services.SchoolClass;
