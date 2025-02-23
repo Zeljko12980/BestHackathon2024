@@ -1,4 +1,4 @@
-# EcoLearn - Edukativna platforma za ekolosku svijest
+# EcoLearn - Edukativna platforma za ekološku svijest
 
 ## **Opis projekta**
 
