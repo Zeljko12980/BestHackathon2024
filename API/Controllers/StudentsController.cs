@@ -33,11 +33,12 @@ public class StudentsController : BaseAPIController
         return Ok(students);
     }
 
-     [HttpGet("stranica")]
-    public async Task<ActionResult> GetAllUsers(int pageNumber = 1, int pageSize = 5, string? searchTerm = null, string? userId = null)
+   
+    [HttpGet("stranica")]
+    public async Task<IActionResult> GetAllUsers(int pageNumber = 1, int pageSize = 5, string? searchTerm = null, string? userId = null)
     {
         var result = await _studentService.GetAllUsersAsync(pageNumber, pageSize, searchTerm, userId);
-        
+
         return Ok(new
         {
             Users = result.Users,
@@ -45,4 +46,5 @@ public class StudentsController : BaseAPIController
             TotalPages = result.TotalPages
         });
     }
-}
+
+    }

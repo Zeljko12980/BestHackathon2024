@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20250222224231_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20250223004630_NewInitialCreate")]
+    partial class NewInitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -147,13 +147,13 @@ namespace API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "628afc77-3f53-4fa1-848f-a9bdc9e1f86f",
+                            Id = "3d5a2683-cbf6-4b03-b13b-9347606a3583",
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
-                            Id = "24886498-bd63-4ec8-8572-f6dfc90e75c2",
+                            Id = "7a800b06-8891-45c9-a45a-50f210efafec",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

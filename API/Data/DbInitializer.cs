@@ -79,7 +79,8 @@ namespace API.Data
                         UserName = "markostudent",
                         Email = "marko@school.com",
                         JMBG = "9876543210",
-                        Score = 0
+                        Score = 12,
+                        SchoolClassId = 1
                     },
                     new User
                     {
@@ -88,7 +89,8 @@ namespace API.Data
                         UserName = "anastudent1",
                         Email = "ana1@school.com",
                         JMBG = "1111111111",
-                        Score = 0
+                        Score = 13,
+                        SchoolClassId = 1
                     },
                     new User
                     {
@@ -97,7 +99,8 @@ namespace API.Data
                         UserName = "ivanstudent2",
                         Email = "ivan2@school.com",
                         JMBG = "2222222222",
-                        Score = 0
+                        Score = 15,
+                        SchoolClassId = 1
                     },
                     new User
                     {
@@ -106,7 +109,8 @@ namespace API.Data
                         UserName = "petarstudent3",
                         Email = "petar3@school.com",
                         JMBG = "3333333333",
-                        Score = 0
+                        Score = 15,
+                        SchoolClassId = 1
                     },
                     new User
                     {
@@ -115,7 +119,8 @@ namespace API.Data
                         UserName = "jelenastudent4",
                         Email = "jelena4@school.com",
                         JMBG = "4444444444",
-                        Score = 0
+                        Score = 16,
+                        SchoolClassId = 1
                     },
                     new User
                     {
@@ -124,7 +129,8 @@ namespace API.Data
                         UserName = "majastudent5",
                         Email = "maja5@school.com",
                         JMBG = "5555555555",
-                        Score = 0
+                        Score = 17,
+                        SchoolClassId = 2
                     },
                     new User
                     {
@@ -133,7 +139,8 @@ namespace API.Data
                         UserName = "bojanstudent6",
                         Email = "bojan6@school.com",
                         JMBG = "6666666666",
-                        Score = 0
+                        Score = 17,
+                        SchoolClassId = 2
                     },
                     new User
                     {
@@ -142,7 +149,7 @@ namespace API.Data
                         UserName = "tamarastudent7",
                         Email = "tamara7@school.com",
                         JMBG = "7777777777",
-                        Score = 0
+                        Score = 24
                     },
                     new User
                     {
@@ -151,7 +158,8 @@ namespace API.Data
                         UserName = "nikolastudent8",
                         Email = "nikola8@school.com",
                         JMBG = "8888888888",
-                        Score = 0
+                        Score = 22,
+                        SchoolClassId = 2
                     },
                     new User
                     {
@@ -160,7 +168,8 @@ namespace API.Data
                         UserName = "stefanstudent9",
                         Email = "stefan9@school.com",
                         JMBG = "9999999999",
-                        Score = 0
+                        Score = 21,
+                        SchoolClassId = 2
                     },
                     new User
                     {
@@ -169,7 +178,8 @@ namespace API.Data
                         UserName = "jovanastudent10",
                         Email = "jovana10@school.com",
                         JMBG = "1010101010",
-                        Score = 0
+                        Score = 25,
+                        SchoolClassId = 2
                     },
                     new User
                     {
@@ -178,7 +188,8 @@ namespace API.Data
                         UserName = "vukstudent11",
                         Email = "vuk11@school.com",
                         JMBG = "1111111112",
-                        Score = 0
+                        Score = 25,
+                        SchoolClassId = 3
                     },
                     new User
                     {
@@ -187,7 +198,8 @@ namespace API.Data
                         UserName = "dariastudent12",
                         Email = "daria12@school.com",
                         JMBG = "2222222223",
-                        Score = 0
+                        Score = 16,
+                        SchoolClassId = 3
                     },
                     new User
                     {
@@ -196,7 +208,8 @@ namespace API.Data
                         UserName = "lukastudent13",
                         Email = "luka13@school.com",
                         JMBG = "3333333334",
-                        Score = 0
+                        Score = 16,
+                        SchoolClassId = 3
                     },
                     new User
                     {
@@ -205,7 +218,8 @@ namespace API.Data
                         UserName = "tanjastudent14",
                         Email = "tanja14@school.com",
                         JMBG = "4444444445",
-                        Score = 0
+                        Score = 17,
+                        SchoolClassId = 3
                     },
                     new User
                     {
@@ -214,7 +228,8 @@ namespace API.Data
                         UserName = "markostudent15",
                         Email = "marko15@school.com",
                         JMBG = "5555555556",
-                        Score = 0
+                        Score = 29,
+                        SchoolClassId = 3
                     }
                 };
 

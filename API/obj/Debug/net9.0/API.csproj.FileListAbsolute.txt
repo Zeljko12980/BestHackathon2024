@@ -576,3 +576,4 @@ C:\Users\Korisnik\Desktop\BestHackathon2024\api\obj\Debug\net9.0\refint\API.dll
 C:\Users\Korisnik\Desktop\BestHackathon2024\api\obj\Debug\net9.0\API.pdb
 C:\Users\Korisnik\Desktop\BestHackathon2024\api\obj\Debug\net9.0\API.genruntimeconfig.cache
 C:\Users\Korisnik\Desktop\BestHackathon2024\api\obj\Debug\net9.0\ref\API.dll
+C:\Users\Korisnik\Desktop\BestHackathon2024\api\bin\Debug\net9.0\itextsharp.dll

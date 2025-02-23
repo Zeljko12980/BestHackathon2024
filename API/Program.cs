@@ -53,6 +53,7 @@ builder.Services.AddScoped<IScoreService, ScoreService>();
 builder.Services.AddScoped<ExportService>();
 
 
+
 builder.Services.AddSingleton<ITwilioService,TwilioService>();
 
 builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));

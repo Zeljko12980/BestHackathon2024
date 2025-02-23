@@ -28,7 +28,7 @@ const ClassDetails: React.FC = () => {
   return (
     <div className="p-6 max-w-4xl mx-auto bg-white shadow-xl rounded-lg">
       <h1 className="text-3xl font-semibold text-center text-gray-800 mb-6">
-        Detalji časa u razredu: {classId}
+        Razred {classId}
       </h1>
 
       {/* Eko igra */}
@@ -41,7 +41,7 @@ const ClassDetails: React.FC = () => {
           disabled={isLoading}
           className={`px-8 py-4 ${isLoading ? 'bg-gray-400' : 'bg-green-500'} text-white font-semibold rounded-full hover:bg-green-600 transition duration-300`}
         >
-          {isLoading ? '⏳ Pokrećem igru...' : 'Počni igru'}
+          {isLoading ? '⏳ Pokrećem igru...' : 'Zadajte kviz'}
         </button>
       </div>
 

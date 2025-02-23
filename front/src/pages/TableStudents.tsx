@@ -1,36 +1,79 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 
 interface Student {
-  order: number;
   name: string;
-  points: number;
+  order: number;
+  score: number;
+  schoolClass: string | null;
+  schoolClassId: string;
 }
 
-const studentsData: Student[] = [
-  { order: 1, name: 'John Doe', points: 95 },
-  { order: 2, name: 'Jane Smith', points: 60 },
-  { order: 3, name: 'Sam Johnson', points: 40 },
-  { order: 4, name: 'Emily Davis', points: 75 },
-];
-
 const TableStudents: React.FC = () => {
-  const [students, setStudents] = useState<Student[]>(studentsData);
+  const [students, setStudents] = useState<Student[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const [sortConfig, setSortConfig] = useState<{
     key: string;
     direction: 'ascending' | 'descending';
   }>({
-    key: 'points',
+    key: 'score',
     direction: 'ascending',
   });
 
-  // Funkcija koja vraća odgovarajuću boju pozadine na osnovu bodova
-  const getPointsBackgroundColor = (points: number) => {
-    if (points >= 90) return 'bg-green-500';
-    if (points >= 60) return 'bg-orange-500';
-    return 'bg-red-500';
+  // Funkcija za formatiranje imena razreda
+  const getClassLabel = (classId: number): string => {
+    switch (classId) {
+      case 1:
+        return 'I-1';
+      case 2:
+        return 'I-2';
+      case 3:
+        return 'I-3';
+      case 4:
+        return 'IV-1';
+      case 5:
+        return 'IV-2';
+      case 6:
+        return 'IV-3';
+      default:
+        return 'N/A'; // Ukoliko nije poznat razred
+    }
   };
 
-  // Funkcija za sortiranje studenata po bodovima
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          'http://localhost:5024/api/students/getAllStudents',
+        );
+        console.log('response: ', response);
+
+        const mappedStudents: Student[] = response.data.value.map(
+          (student: any) => ({
+            name: `${student.firstName} ${student.lastName}`,
+            score: student.score || 0,
+            schoolClassId: student.schoolClassId,
+          }),
+        );
+
+        const sortedStudents = mappedStudents.sort((a, b) => b.score - a.score);
+        const orderedStudents = sortedStudents.map((student, index) => ({
+          ...student,
+          order: index + 1,
+        }));
+
+        setStudents(orderedStudents);
+        console.log(orderedStudents);
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const sortedStudents = React.useMemo(() => {
     const sortableStudents = [...students];
     sortableStudents.sort((a, b) => {
@@ -42,23 +85,21 @@ const TableStudents: React.FC = () => {
       if (
         a[sortConfig.key as keyof Student] > b[sortConfig.key as keyof Student]
       ) {
-        return sortConfig.direction === 'ascending' ? 1 : -1;
+        return sortConfig.direction === 'descending' ? 1 : -1;
       }
       return 0;
     });
     return sortableStudents;
   }, [students, sortConfig]);
 
-  // Funkcija koja menja smjer sortiranja
   const requestSort = () => {
     let direction: 'ascending' | 'descending' = 'ascending';
-    if (sortConfig.key === 'points' && sortConfig.direction === 'ascending') {
+    if (sortConfig.key === 'score' && sortConfig.direction === 'ascending') {
       direction = 'descending';
     }
-    setSortConfig({ key: 'points', direction });
+    setSortConfig({ key: 'score', direction });
   };
 
-  // Funkcija koja renderuje ikonu sortiranja
   const getSortIcon = () => {
     if (sortConfig.direction === 'ascending') {
       return (
@@ -96,47 +137,56 @@ const TableStudents: React.FC = () => {
     );
   };
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
+    <div className="rounded-lg border border-gray-300 bg-white px-6 py-4 shadow-lg dark:border-stroke-dark dark:bg-gray-800">
       <div className="max-w-full overflow-x-auto">
         <div className="flex justify-end mb-4">
           <button
             onClick={requestSort}
-            className="flex items-center space-x-2 text-black dark:text-white hover:text-primary"
+            className="flex items-center space-x-2 text-black dark:text-white hover:text-blue-500"
           >
-            <span>Sort</span>
+            <span>Sortiraj po poenima</span>
             {getSortIcon()}
           </button>
         </div>
-        <table className="w-full table-auto">
+        <table className="w-full table-auto text-sm">
           <thead>
-            <tr className="bg-gray-200 text-left dark:bg-meta-4">
-              <th className="min-w-[50px] py-4 px-4 font-medium text-black dark:text-white">
-                Broj u dnevniku
+            <tr className="bg-gray-200 text-left dark:bg-gray-700">
+              <th className="py-3 px-4 font-semibold text-center text-gray-700 dark:text-white">
+                Mjesto
               </th>
-              <th className="py-4 px-4 font-medium text-center text-black dark:text-white">
+              <th className="py-3 px-4 font-semibold text-center text-gray-700 dark:text-white">
                 Ime i Prezime
               </th>
-              <th className="min-w-[120px] py-4 px-8 font-medium text-black dark:text-white text-right">
+              <th className="py-3 px-4 font-semibold text-center text-gray-700 dark:text-white">
+                Razred
+              </th>
+              <th className="py-3 px-4 font-semibold text-center text-gray-700 dark:text-white">
                 Poeni
               </th>
             </tr>
           </thead>
           <tbody>
             {sortedStudents.map((student, index) => (
-              <tr key={index}>
-                <td className="border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
-                  <p className="text-black dark:text-white">{student.order}</p>
+              <tr
+                key={index}
+                className="hover:bg-gray-100 dark:hover:bg-gray-600"
+              >
+                <td className="border-b py-4 px-4 text-center text-gray-600 dark:text-white">
+                  {student.order}
                 </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark text-center">
-                  <p className="text-black dark:text-white">{student.name}</p>
+                <td className="border-b py-4 px-4 text-center text-gray-600 dark:text-white">
+                  {student.name}
                 </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark text-right pr-9">
-                  <p
-                    className={`inline-flex rounded-full py-1 px-3 text-sm font-medium text-white ${getPointsBackgroundColor(student.points)}`}
-                  >
-                    {student.points}
-                  </p>
+                <td className="border-b py-4 px-4 text-center text-gray-600 dark:text-white">
+                  {getClassLabel(Number(student.schoolClassId))}
+                </td>
+                <td className="border-b py-4 px-4 text-center text-gray-600 dark:text-white">
+                  {student.score}
                 </td>
               </tr>
             ))}

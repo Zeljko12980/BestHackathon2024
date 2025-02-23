@@ -35,8 +35,27 @@ const GamePage: React.FC = () => {
     setIsLoading(true);
     setError(null); // Resetovanje greške pre novog poziva
     try {
-      const response = await axios.get(
-        `http://localhost:5024/api/Python/run-quiz?userId=${userId}`,
+      const response = await axios.post(
+        `http://localhost:5024/api/game/second-game?userId=${userId}`,
+      );
+
+      if (response.data.message === 'Game started successfully') {
+        alert('Igra je uspešno pokrenuta!');
+      }
+    } catch (error) {
+      setError('Greška pri pokretanju igre');
+      console.error('Greška pri pozivu API-ja:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleStartGameThree = async () => {
+    setIsLoading(true);
+    setError(null); // Resetovanje greške pre novog poziva
+    try {
+      const response = await axios.post(
+        `http://localhost:5024/api/game/third-game?userId=${userId}`,
       );
 
       if (response.data.message === 'Game started successfully') {
@@ -61,9 +80,9 @@ const GamePage: React.FC = () => {
         </h4>
 
         <p className="text-gray-600 mb-4 text-md">
-          Ovdje možete da igrate igre koje će vam pomoći da učite i zabavljate
-          se! Izaberite igru koja vam se najviše dopada i počnite da učite na
-          zabavan način.
+          Nadam se da si spreman da igraš igre koje će ti pomoći da učiš i da se
+          zabaviš ! Izaberite igru koja vam se najviše dopada i počnite da učite
+          na zabavan način.
         </p>
 
         {message && (
@@ -82,13 +101,12 @@ const GamePage: React.FC = () => {
               ) : (
                 <>
                   <FaRegPlayCircle className="inline-block mr-2" /> Igra 1 -
-                  Učenje kroz igru
+                  Odlaganje otpada
                 </>
               )}
             </button>
             <p className="text-gray-500 text-sm mt-2">
-              Ova igra pomaže da naučiš osnovne pojmove na zabavan način kroz
-              različite zadatke i izazove.
+              Ova igra pomaže ti da naučiš osnove reciklaže na zabavan način!
             </p>
           </div>
 
@@ -98,8 +116,7 @@ const GamePage: React.FC = () => {
               disabled={loading}
               className="w-full py-3 text-lg font-semibold bg-green-500 rounded-lg shadow-md hover:bg-green-600 text-white transition-all duration-300"
             >
-              <FaTrophy className="inline-block mr-2" /> Igra 2 - Izazov u
-              učenju
+              <FaTrophy className="inline-block mr-2" /> Igra 2 - Kviz
             </button>
             <p className="text-gray-500 text-sm mt-2">
               Igra koja testira tvoje znanje uz izazove koji postaju sve teži.
@@ -107,12 +124,15 @@ const GamePage: React.FC = () => {
           </div>
 
           <div className="game-button">
-            <button className="w-full py-3 text-lg font-semibold bg-red-500 rounded-lg shadow-md hover:bg-red-600 text-white transition-all duration-300">
-              <FaFireAlt className="inline-block mr-2" /> Igra 3 - Brzi testovi
+            <button
+              onClick={handleStartGameThree}
+              className="w-full py-3 text-lg font-semibold bg-red-500 rounded-lg shadow-md hover:bg-red-600 text-white transition-all duration-300"
+            >
+              <FaFireAlt className="inline-block mr-2" /> Igra 3 - Razgibavanje
             </button>
             <p className="text-gray-500 text-sm mt-2">
               U ovoj igri moraš brzo odgovarati na pitanja kako bi testirao
-              svoje znanje pod pritiskom.
+              svoje znanje pod pritiskom
             </p>
           </div>
         </div>

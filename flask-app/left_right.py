@@ -10,7 +10,7 @@ from PIL import Image, ImageDraw, ImageFont
 # Constants
 IMAGE_SIZE = (300, 280)  # Širina 300px, visina 280px
 CHECK_INTERVAL = 3  # sekundi
-FONT_PATH = "DejaVuSans.ttf"
+FONT_PATH = "arial.ttf"
 FONT_SIZE = 46
 IMAGE_PATHS = {
     'level1': {'left': "Slike/Bike.jpg", 'right': "Slike/Car.jpg"},

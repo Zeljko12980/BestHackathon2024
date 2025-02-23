@@ -7,6 +7,8 @@ from PIL import Image, ImageDraw, ImageFont
 import numpy as np
 from gtts import gTTS
 import os
+import sys
+import requests
 
 # Inicijalizacija kamere
 cap = cv2.VideoCapture(0)
@@ -50,7 +52,7 @@ def draw_text_with_bg_pil(frame, text, position, font_size=32, bg_color=(0, 0, 0
                           padding=15, border=4):
     pil_image = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
     draw = ImageDraw.Draw(pil_image)
-    font = ImageFont.truetype("DejaVuSans.ttf", font_size)
+    font = ImageFont.truetype("arial.ttf", font_size)
 
     # Izračunaj veličinu teksta
     text_bbox = draw.textbbox((0, 0), text, font=font)
